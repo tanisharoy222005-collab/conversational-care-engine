@@ -8,16 +8,19 @@ from app.summarizer import summarize_history
 
 app = FastAPI(
 title="Conversational Care Engine",
-version="1.0.0",
-description="Multi-turn health coaching backend"
+version="1.0.0"
 )
 
 @app.get("/")
 def home():
+
+```
 return {
-"status": "running",
-"version": "1.0.0"
+    "status": "running",
+    "service": "Conversational Care Engine",
+    "version": "1.0.0"
 }
+```
 
 @app.post("/chat")
 def chat(request: ChatRequest):
@@ -47,3 +50,4 @@ return {
     "history_length": len(history)
 }
 ```
+
