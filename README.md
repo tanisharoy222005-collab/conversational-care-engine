@@ -1,24 +1,16 @@
 # Conversational Care Engine
 
-A multi-turn health coaching backend built with FastAPI.
-
-## Overview
-
-The Conversational Care Engine provides condition-specific conversational support for:
-
-* Diabetes
-* Thyroid Disorders
-* Obesity Management
-
-The system maintains user session history and generates contextual responses based on previous interactions.
+Multi-turn health coaching backend built with FastAPI.
 
 ## Features
 
-* Multi-turn conversation memory
-* Condition-specific coaching responses
-* FastAPI REST API
-* Session management
-* Extensible architecture
+* Multi-turn conversations
+* Session memory
+* Diabetes support
+* Thyroid support
+* Obesity support
+* Conversation summarization
+* REST API
 
 ## Tech Stack
 
@@ -29,25 +21,33 @@ The system maintains user session history and generates contextual responses bas
 
 ## Project Structure
 
-```text
 conversational-care-engine/
-│
+
 ├── README.md
+
 ├── requirements.txt
-├── .gitignore
-│
+
 ├── app/
-│   ├── main.py
-│   ├── memory.py
-│   ├── coach.py
-│   └── models.py
-│
+
+│ ├── main.py
+
+│ ├── models.py
+
+│ ├── memory.py
+
+│ ├── coach.py
+
+│ └── summarizer.py
+
 ├── tests/
-│   └── test_chat.py
-│
-└── docs/
-    └── architecture.md
-```
+
+│ └── test_chat.py
+
+├── docs/
+
+│ └── architecture.md
+
+└── screenshots/
 
 ## Installation
 
@@ -59,7 +59,7 @@ cd conversational-care-engine
 pip install -r requirements.txt
 ```
 
-## Run the Application
+## Run Application
 
 ```bash
 uvicorn app.main:app --reload
@@ -71,7 +71,7 @@ Open:
 http://127.0.0.1:8000/docs
 ```
 
-## Example API Request
+## Example Request
 
 POST /chat
 
@@ -82,22 +82,29 @@ POST /chat
 }
 ```
 
-Response:
+## Example Response
 
 ```json
 {
-  "reply": "Monitor blood sugar levels and maintain a balanced diet.",
+  "reply": "For diabetes management, monitor blood sugar levels, maintain a balanced diet, and exercise regularly.",
+  "summary": "I have diabetes",
   "history_length": 1
 }
 ```
 
-## Future Improvements
+## Run Tests
 
-* Redis-based session storage
-* OpenAI/Gemini integration
-* Voice interface
-* Authentication and authorization
-* Analytics dashboard
+```bash
+pytest
+```
+
+## Future Roadmap
+
+* Redis
+* Twilio
+* Whisper
+* OpenAI Integration
+* Analytics Dashboard
 
 ## License
 
